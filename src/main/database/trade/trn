@@ -1,0 +1,14 @@
+create table trade.trn(
+id int primary key auto_increment not null,
+client_number int not null,
+amount DOUBLE not null,
+currency CHAR(3) not null,
+type CHAR(8) not null,
+DESCRIPTION VARCHAR(256) CHARACTER SET utf8 COLLATE utf8_unicode_ci,
+creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null,
+update_date TIMESTAMP,
+FOREIGN KEY (type) REFERENCES TRADE.TRN_TYPE(TYPE),
+index (client_number),
+index (type),
+index (creation_date)
+);
